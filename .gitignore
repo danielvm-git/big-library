@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.env
+*.log
+.DS_Store
+.tmp
+*.pdf
+*.epub
+*.png
+bigbase.db

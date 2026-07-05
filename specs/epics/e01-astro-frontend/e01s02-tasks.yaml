@@ -1,0 +1,17 @@
+story_id: e01s02
+title: Svelte Login & JWT Integration
+status: todo
+bcps: 3
+tasks:
+  - id: 1
+    description: "Install Svelte integration and create Login.svelte component"
+    verify: "npm run build"
+    status: todo
+  - id: 2
+    description: "Implement BigBase JWT Auth in frontend"
+    verify: "npm run build"
+    status: todo
+  - id: 3
+    description: "Add client-side route guards"
+    verify: "npm run build"
+    status: todo

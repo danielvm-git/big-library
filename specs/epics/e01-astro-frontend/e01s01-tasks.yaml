@@ -1,0 +1,17 @@
+story_id: e01s01
+title: Astro Setup with BigBase DS
+status: todo
+bcps: 2
+tasks:
+  - id: 1
+    description: "Initialize Astro project with SSG and Svelte integration"
+    verify: "npm run build"
+    status: todo
+  - id: 2
+    description: "Integrate April Green BigBase Design System CSS"
+    verify: "npm run build"
+    status: todo
+  - id: 3
+    description: "Migrate prototype.html to Astro layout and pages"
+    verify: "npm run build"
+    status: todo

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" data-accent="april">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Big Library</title>
+  <link rel="stylesheet" href="colors_and_type.css" />
+  <link rel="stylesheet" href="components.css" />
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <div class="sidebar-logo-mark" style="background: var(--brand-500); border-radius: var(--radius-s); display:flex; align-items:center; justify-content:center; color:white;">
+          <i data-feather="book-open" style="width:16px; height:16px;"></i>
+        </div>
+        <span class="sidebar-logo-text">Big Library</span>
+      </div>
+      
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Collection</div>
+        <ul class="sidebar-nav">
+          <li>
+            <a href="#" class="active">
+              <i data-feather="grid" class="sidebar-nav-icon"></i> Discover
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i data-feather="heart" class="sidebar-nav-icon"></i> Favorites
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i data-feather="book" class="sidebar-nav-icon"></i> English Learning
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Agent Tools</div>
+        <ul class="sidebar-nav">
+          <li>
+            <a href="#">
+              <i data-feather="key" class="sidebar-nav-icon"></i> MCP Tokens
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i data-feather="cpu" class="sidebar-nav-icon"></i> OKF Parser
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-spacer"></div>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="avatar">D</div>
+          <div class="sidebar-email">danielvm@bigbase.io</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="content" style="display: flex; gap: var(--space-8); align-items: flex-start;">
+      
+      <!-- Center Column: Books -->
+      <div style="flex: 1;">
+        <div class="page-header">
+          <div>
+            <h1 class="ds-h1">Big Library Knowledge Base</h1>
+            <div class="page-subtitle">AI-readable OKF library for Agile, Lean, and Project Management.</div>
+          </div>
+          <div class="page-header-actions">
+            <button class="btn btn-primary">
+              <i data-feather="upload-cloud" class="icon"></i> Import PDF
+            </button>
+          </div>
+        </div>
+
+        <!-- Filters (using tabs style) -->
+        <div class="tabs">
+          <button class="tab active">All Specs</button>
+          <button class="tab">Agile & Lean</button>
+          <button class="tab">Architecture</button>
+          <button class="tab">Management</button>
+          <button class="tab">English</button>
+        </div>
+
+        <!-- Book Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-6);">
+          
+          <!-- Card 1 -->
+          <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+            <div style="display: flex; height: 160px; background: var(--brand-tint); border-bottom: 1px solid var(--border-default);">
+              <div style="flex: 1; display: flex; align-items: center; justify-content: center; color: var(--fg-accent);">
+                 <i data-feather="layers" style="width: 48px; height: 48px; opacity: 0.8;"></i>
+              </div>
+            </div>
+            <div style="padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-3);">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div>
+                  <div class="ds-h3">PMBOK 7th Edition</div>
+                  <div class="ds-caption" style="margin-top: var(--space-1);">Project Management Institute</div>
+                </div>
+                <button class="btn-link" style="color: var(--error);"><i data-feather="heart" class="icon" style="fill: var(--error);"></i></button>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-top: var(--space-2);">
+                <span class="badge badge-accent">Management</span>
+                <button class="btn btn-secondary btn-sm"><i data-feather="copy" class="icon" style="width:12px; height:12px;"></i> OKF</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+            <div style="display: flex; height: 160px; background: var(--warning-bg); border-bottom: 1px solid var(--border-default);">
+              <div style="flex: 1; display: flex; align-items: center; justify-content: center; color: var(--warning-fg);">
+                 <i data-feather="git-merge" style="width: 48px; height: 48px; opacity: 0.8;"></i>
+              </div>
+            </div>
+            <div style="padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-3);">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div>
+                  <div class="ds-h3">Lean Software Development</div>
+                  <div class="ds-caption" style="margin-top: var(--space-1);">Mary & Tom Poppendieck</div>
+                </div>
+                <button class="btn-link" style="color: var(--fg-tertiary);"><i data-feather="heart" class="icon"></i></button>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-top: var(--space-2);">
+                <span class="badge badge-warning">Agile & Lean</span>
+                <button class="btn btn-secondary btn-sm"><i data-feather="copy" class="icon" style="width:12px; height:12px;"></i> OKF</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+            <div style="display: flex; height: 160px; background: var(--success-bg); border-bottom: 1px solid var(--border-default);">
+              <div style="flex: 1; display: flex; align-items: center; justify-content: center; color: var(--success-fg);">
+                 <i data-feather="box" style="width: 48px; height: 48px; opacity: 0.8;"></i>
+              </div>
+            </div>
+            <div style="padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-3);">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div>
+                  <div class="ds-h3">The Toyota Way</div>
+                  <div class="ds-caption" style="margin-top: var(--space-1);">Jeffrey Liker</div>
+                </div>
+                <button class="btn-link" style="color: var(--error);"><i data-feather="heart" class="icon" style="fill: var(--error);"></i></button>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-top: var(--space-2);">
+                <span class="badge badge-success">Agile & Lean</span>
+                <button class="btn btn-secondary btn-sm"><i data-feather="copy" class="icon" style="width:12px; height:12px;"></i> OKF</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+            <div style="display: flex; height: 160px; background: var(--info-bg); border-bottom: 1px solid var(--border-default);">
+              <div style="flex: 1; display: flex; align-items: center; justify-content: center; color: var(--info-fg);">
+                 <i data-feather="code" style="width: 48px; height: 48px; opacity: 0.8;"></i>
+              </div>
+            </div>
+            <div style="padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-3);">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div>
+                  <div class="ds-h3">Clean Code</div>
+                  <div class="ds-caption" style="margin-top: var(--space-1);">Robert C. Martin</div>
+                </div>
+                <button class="btn-link" style="color: var(--fg-tertiary);"><i data-feather="heart" class="icon"></i></button>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-top: var(--space-2);">
+                <span class="badge badge-info">Architecture</span>
+                <button class="btn btn-secondary btn-sm"><i data-feather="copy" class="icon" style="width:12px; height:12px;"></i> OKF</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right Column: Profile & Tools -->
+      <div style="width: 300px; display: flex; flex-direction: column; gap: var(--space-6);">
+        
+        <!-- Auth / Token Card -->
+        <div class="card">
+          <div class="card-header" style="margin-bottom: var(--space-4);">
+            <div class="ds-h3 row"><i data-feather="shield" class="icon" style="color: var(--fg-accent);"></i> MCP Access</div>
+          </div>
+          <p class="ds-caption" style="margin-bottom: var(--space-4);">AI Agents use this Bearer token to read OKF chunks via the BigBase MCP.</p>
+          <div class="input-with-prefix" style="margin-bottom: var(--space-4);">
+            <div class="input-prefix"><i data-feather="key" style="width:14px; height:14px;"></i></div>
+            <input type="password" class="input" value="big_library_mcp_b4d8_token" readonly />
+          </div>
+          <button class="btn btn-secondary btn-block">
+            <i data-feather="copy" class="icon"></i> Copy Token
+          </button>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="stats-grid" style="grid-template-columns: 1fr;">
+          <div class="stat-card">
+            <div class="stat-card-top">
+              <div class="stat-icon"><i data-feather="database"></i></div>
+            </div>
+            <div style="margin-top: var(--space-2);">
+              <div class="stat-count">93</div>
+              <div class="stat-label">Indexed Documents</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Pipeline Status -->
+        <div class="card">
+          <div class="card-header" style="margin-bottom: var(--space-4);">
+            <div class="ds-h3 row"><i data-feather="cpu" class="icon" style="color: var(--info-fg);"></i> OKF Pipeline</div>
+          </div>
+          <div class="log-line">
+            <span class="log-time">11:32</span>
+            <span class="log-ok">Parsed PMBOK_7th_Edition.pdf</span>
+          </div>
+          <div class="log-line">
+            <span class="log-time">11:33</span>
+            <span class="log-ok">Generated OKF chunks</span>
+          </div>
+          <div class="log-line">
+            <span class="log-time">11:34</span>
+            <span class="log-ok">MCP Context Updated</span>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <script>
+    feather.replace();
+  </script>
+</body>
+</html>

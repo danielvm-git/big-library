@@ -1,0 +1,7 @@
+Title: The Phoenix Project: A Novel about IT, DevOps, and Helping Your Business Win
+Authors: Gene Kim, Kevin Behr, George Spafford
+Year: 2013
+Publisher: IT Revolution Press
+ISBN: 978-1942788294
+Topics: DevOps, IT Management, Agile, Continuous Delivery
+Link: https://www.amazon.com/Phoenix-Project-DevOps-Helping-Business/dp/1942788290

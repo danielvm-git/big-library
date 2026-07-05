@@ -1,0 +1,21 @@
+context_capsule: null
+workflows:
+  survey-context:
+    required: true
+    status: done
+  scope-work:
+    required: true
+    status: done
+  research-first:
+    required: false
+    status: skipped
+    note: "Skip if no external dependencies"
+  elaborate-spec:
+    required: false
+    status: skipped
+  plan-release:
+    required: true
+    status: done
+  slice-tasks:
+    required: true
+    status: done

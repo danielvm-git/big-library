@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "bigbase": {
+      "type": "url",
+      "url": "https://mcp.bigbase.click/mcp"
+    }
+  }
+}

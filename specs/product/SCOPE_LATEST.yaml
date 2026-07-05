@@ -1,0 +1,38 @@
+core_value: "A highly secure, statically generated knowledge library that natively leverages BigBase Auth, routing, and functions to serve human-readable books and AI-readable MCP chunks."
+
+summary: |
+  The Big Library MVP is a content-focused web application built to house Agile, Lean, and PMBOK methodologies. 
+  It uses an Astro SSG frontend to render OKF Markdown files into a beautiful "April Green" design system. 
+  Crucially, it acts as a showcase for full BigBase integration: BigBase Auth secures the Svelte login, BigBase routing protects the static assets, and a BigBase Go function powers an AI MCP Server that queries a Pagefind JSON index to efficiently serve knowledge chunks to agents.
+
+in_scope:
+  - "Astro SSG frontend rendering OKF Markdown files from `src/content`."
+  - "Svelte-based login component seamlessly integrated into the Astro build."
+  - "BigBase JWT Authentication integration (frontend token management & host-level route protection)."
+  - "Pagefind integration to generate a static JSON search index during the Astro build."
+  - "BigBase Go Serverless Function acting as the AI MCP Server (consuming the Pagefind index)."
+  - "BigBase Design System CSS (April Green theme) applied across the UI."
+  - "Book Ingestion & OKF Content Pipeline: Scrape PDFs and raw AI prompts, converting them to canonical OKF format in `src/content/books/` and syncing with `LIBRARY_INDEX.md`."
+
+out_of_scope:
+  - item: "Dynamic content editing (CMS) in the browser"
+    reason: "This is an SSG site; content lives in git and is compiled at build time."
+  - item: "Real-time WebSockets or live collaboration"
+    reason: "Not needed for a static library reading app."
+  - item: "Complex user profiles or social features"
+    reason: "Focus is strictly on knowledge reading and exposing the AI MCP."
+
+constraints:
+  - "Must deploy natively on the BigBase `deploy` service."
+  - "Raw OKF chunks must NEVER be exposed publicly without JWT auth."
+  - "AI MCP must minimize token usage by querying the Pagefind index, not dumping raw markdown files into context."
+
+success_criteria:
+  - "Site builds successfully via `astro build` and deploys to BigBase."
+  - "Unauthenticated users cannot view or fetch knowledge pages or the Pagefind index."
+  - "Authenticated users can browse and read the library."
+  - "AI MCP Server can successfully return Pagefind search results when queried with a valid Bearer token."
+
+references:
+  - "specs/tech-architecture/tech-stack.md"
+  - "specs/tech-architecture/DESIGN_LATEST.md"

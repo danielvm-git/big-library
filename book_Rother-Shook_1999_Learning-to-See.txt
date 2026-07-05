@@ -1,0 +1,7 @@
+Title: Learning to See: Value Stream Mapping to Add Value and Eliminate Muda
+Authors: Mike Rother, John Shook
+Year: 1999
+Publisher: Lean Enterprise Institute
+ISBN: 978-0-9667843-0-5
+Topics: Value Stream Mapping, Muda Elimination, Lean Tools
+Link: https://www.amazon.com/Learning-See-Stream-Mapping-Eliminate/dp/0966784308/

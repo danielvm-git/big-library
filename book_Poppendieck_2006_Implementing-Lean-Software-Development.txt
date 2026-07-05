@@ -1,0 +1,7 @@
+Title: Implementing Lean Software Development: From Concept to Cash
+Authors: Mary Poppendieck, Tom Poppendieck
+Year: 2006
+Publisher: Addison-Wesley Professional
+ISBN: 978-0-321-43738-9
+Topics: Lean Software Development, Agile, Software Engineering
+Link: https://www.amazon.com/Implementing-Lean-Software-Development-Concept/dp/0321437381/

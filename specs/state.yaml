@@ -1,0 +1,5 @@
+workflow_mode: solo-git
+active_flow: build_epic
+active_epic_id: e01
+handoff:
+  next_skill: build-epic
