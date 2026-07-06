@@ -1,0 +1,59 @@
+---
+import '../styles/colors_and_type.css';
+import '../styles/components.css';
+
+const { title = "Big Library" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-accent="april">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<!-- Feather Icons -->
+		<script src="https://unpkg.com/feather-icons" is:inline></script>
+	</head>
+	<body>
+		<div class="layout">
+			<!-- Sidebar -->
+			<aside class="sidebar">
+				<div class="sidebar-logo">
+					<div class="sidebar-logo-mark" style="background: var(--brand-500); border-radius: var(--radius-s); display:flex; align-items:center; justify-content:center; color:white;">
+						<i data-feather="book-open" style="width:16px; height:16px;"></i>
+					</div>
+					<span class="sidebar-logo-text">Big Library</span>
+				</div>
+				
+				<div class="sidebar-section">
+					<div class="sidebar-section-title">Collection</div>
+					<ul class="sidebar-nav">
+						<li>
+							<a href="/" class="active">
+								<i data-feather="grid" class="sidebar-nav-icon"></i> Discover
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="sidebar-spacer"></div>
+				<div class="sidebar-footer">
+					<div class="sidebar-user">
+						<div class="avatar">D</div>
+						<div class="sidebar-email">danielvm@bigbase.io</div>
+					</div>
+				</div>
+			</aside>
+
+			<!-- Main Content Area -->
+			<main class="content" style="display: flex; gap: var(--space-8); align-items: flex-start;">
+				<slot />
+			</main>
+		</div>
+
+		<script is:inline>
+			feather.replace();
+		</script>
+	</body>
+</html>

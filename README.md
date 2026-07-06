@@ -1,90 +1,46 @@
-# Big Library
+# Astro Starter Kit: Basics
 
-![License](https://img.shields.io/badge/License-MIT-yellow.svg)
-![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
-
-> A highly secure, statically generated knowledge library that natively leverages BigBase Auth, routing, and functions to serve human-readable books and AI-readable MCP chunks.
-
-An AI-readable knowledge library built on BigBase, using OKF (Open Knowledge Format) markdown for structure. It is designed to house Agile, Lean, and PMBOK methodologies and present them beautifully to authenticated human users while remaining structurally perfect for autonomous AI agents.
-
-By using an Astro SSG frontend paired with BigBase Auth and routing, raw markdown content is strictly protected. An integrated BigBase Go serverless function acts as an MCP Server, providing highly efficient sub-second access to library content for AI workflows by querying a statically generated Pagefind index.
-
-## Prerequisites
-
-- **Runtime**: Node.js v18+ and Go 1.21+
-- **Package manager**: npm
-- **Platform CLI**: BigBase CLI for deployment
-
-## Installation
-
-```bash
-git clone https://github.com/danielvm-git/big-library.git
-cd big-library
-npm install
+```sh
+npm create astro@latest -- --template basics
 ```
 
-## Usage
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-```bash
-# Start local development server
-npm run dev
+## 🚀 Project Structure
 
-# Build the SSG site for production
-npm run build
+Inside of your Astro project, you'll see the following folders and files:
+
+```text
+/
+├── public/
+│   └── favicon.svg
+├── src
+│   ├── assets
+│   │   └── astro.svg
+│   ├── components
+│   │   └── Welcome.astro
+│   ├── layouts
+│   │   └── Layout.astro
+│   └── pages
+│       └── index.astro
+└── package.json
 ```
 
-## Features
+To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
-- **BigBase Native Authentication**: Svelte login page tightly integrated with BigBase JWT Auth for robust route protection.
-- **SSG Architecture**: Built on Astro, ensuring maximum speed, SEO readiness, and zero unauthenticated database connections.
-- **April Green Design System**: Implements a highly premium, modern, glassmorphic UI using the official BigBase Design System.
-- **AI-Optimized Storage**: Uses Open Knowledge Format (OKF) with YAML frontmatter.
-- **MCP Go Serverless Function**: Exposes knowledge directly to AI Agents efficiently via a Pagefind JSON search index.
+## 🧞 Commands
 
-## Configuration
+All commands are run from the root of the project, from a terminal:
 
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `JWT_SECRET` | `TODO` | Secret key for verifying BigBase Auth tokens |
-| `MCP_PORT` | `TODO` | Port for the local MCP testing server |
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## Development
+## 👀 Want to learn more?
 
-```bash
-git clone https://github.com/danielvm-git/big-library.git
-cd big-library
-npm install
-npm run dev
-```
-
-## Tests
-
-```bash
-npm test
-npm run lint
-```
-
-## Contributing
-
-1. Fork the repo.
-2. Create a feature branch (`git checkout -b feature/my-thing`).
-3. Commit changes (`git commit -am 'Add my thing'`).
-4. Push (`git push origin feature/my-thing`).
-5. Open a Pull Request.
-
-## Changelog
-
-See [CHANGELOG.md](CHANGELOG.md) or [Releases](https://github.com/user/repo/releases).
-
-## Links
-
-- Repository: TODO (Update with actual repo URL)
-- Issue tracker: TODO (Update with actual issues URL)
-
-## License
-
-MIT — see [LICENSE](LICENSE) for details.
-
-## Credits
-
-Built with [bigpowers](https://github.com/danielvm-git/bigpowers) orchestration methodology.
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
