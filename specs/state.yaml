@@ -1,9 +1,9 @@
 workflow_mode: solo-git
 active_flow: build_epic
-active_epic_id: e01
+active_epic_id: e02
 handoff:
-  next_skill: release-branch
-  hermes_entrypoint: specs/epics/e01-book-ingestion/
+  next_skill: develop-tdd
+  hermes_entrypoint: specs/epics/e02-astro-frontend/
   content_assets:
     ai_prompts: "AI_Assistant_Prompt_*.md (repo root, 9 files)"
     book_stubs: "books/*/index.md (16 stubs with status: no-pdf)"
