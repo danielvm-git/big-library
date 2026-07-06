@@ -1,8 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Login from '../components/Login.svelte';
 ---
 
 <Layout title="Big Library">
+  <Login client:only="svelte" />
+
   <!-- Center Column: Books -->
   <div style="flex: 1;">
     <div class="page-header">
@@ -131,7 +134,7 @@ import Layout from '../layouts/Layout.astro';
       <p class="ds-caption" style="margin-bottom: var(--space-4);">AI Agents use this Bearer token to read OKF chunks via the BigBase MCP.</p>
       <div class="input-with-prefix" style="margin-bottom: var(--space-4);">
         <div class="input-prefix"><i data-feather="key" style="width:14px; height:14px;"></i></div>
-        <input type="password" class="input" value="big_library_mcp_b4d8_token" readonly />
+        <input type="password" id="jwt-token-input" class="input" value="" readonly />
       </div>
       <button class="btn btn-secondary btn-block">
         <i data-feather="copy" class="icon"></i> Copy Token
@@ -171,4 +174,16 @@ import Layout from '../layouts/Layout.astro';
     </div>
 
   </div>
+
+  <script is:inline>
+    window.addEventListener('auth-success', (e) => {
+      const tokenInput = document.getElementById('jwt-token-input');
+      if (tokenInput) tokenInput.value = e.detail.token;
+    });
+    window.addEventListener('DOMContentLoaded', () => {
+      const tokenInput = document.getElementById('jwt-token-input');
+      const token = localStorage.getItem('bigbase_jwt');
+      if (tokenInput && token) tokenInput.value = token;
+    });
+  </script>
 </Layout>
