@@ -2,4 +2,18 @@ workflow_mode: solo-git
 active_flow: build_epic
 active_epic_id: e01
 handoff:
-  next_skill: build-epic
+  next_skill: kickoff-branch
+  hermes_entrypoint: specs/epics/e01-book-ingestion/
+  content_assets:
+    ai_prompts: "AI_Assistant_Prompt_*.md (repo root, 9 files)"
+    book_stubs: "books/*/index.md (16 stubs with status: no-pdf)"
+    metadata_txt: "book_*.txt (repo root, metadata only)"
+    migration_script: migrate_to_okf.py
+    index: LIBRARY_INDEX.md
+  pdf_note: "PDFs are gitignored (*.pdf); place under books/ per LIBRARY_INDEX.md paths before e01s01 PDF scrape task."
+environment:
+  node: "v24.15.0"
+  go: "go1.26.3"
+  python: "3.13.13"
+  npm_project: false
+  note: "No package.json until e02s01; e01 is content-only (Python scripts + OKF markdown)."

@@ -1,0 +1,20 @@
+story_id: e01s01
+title: Convert PDF & Raw Scrapes to OKF
+status: todo
+bcps: 3
+tasks:
+  - id: 1
+    description: "Update migrate_to_okf.py output directory to src/content/books"
+    verify: "grep 'src/content/books' migrate_to_okf.py"
+    risk: P3
+    status: todo
+  - id: 2
+    description: "Add PDF extraction (PyPDF2) and AI scrape logic to script, removing status: no-pdf for successfully ingested texts"
+    verify: "grep -E 'PyPDF2|fitz|pypdf' migrate_to_okf.py"
+    risk: P0
+    status: todo
+  - id: 3
+    description: "Run script to generate OKF files and ensure src/content/books is populated"
+    verify: "ls -d src/content/books/*"
+    risk: P1
+    status: todo

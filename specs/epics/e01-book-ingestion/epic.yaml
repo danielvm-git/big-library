@@ -1,18 +1,18 @@
-id: e03
+id: e01
 title: "Book Ingestion & OKF Content Pipeline"
 wsjf: 8.3
 total_bcps: 5
 status: todo
 stories:
-  - id: e03s01
+  - id: e01s01
     title: Convert PDF & Raw Scrapes to OKF
     bcps: 3
     status: todo
-    spec: e03s01-scraping.md
-    tasks: e03s01-tasks.yaml
-  - id: e03s02
+    spec: e01s01-scraping.md
+    tasks: e01s01-tasks.yaml
+  - id: e01s02
     title: Sync src/content/books with LIBRARY_INDEX.md
     bcps: 2
     status: todo
-    spec: e03s02-sync.md
-    tasks: e03s02-tasks.yaml
+    spec: e01s02-sync.md
+    tasks: e01s02-tasks.yaml

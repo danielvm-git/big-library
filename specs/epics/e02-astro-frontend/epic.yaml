@@ -1,18 +1,18 @@
-id: e01
+id: e02
 title: "Astro Frontend & BigBase Auth"
 wsjf: 8.5
 total_bcps: 5
 status: todo
 stories:
-  - id: e01s01
+  - id: e02s01
     title: Astro Setup with BigBase DS
     bcps: 2
     status: todo
-    spec: e01s01-setup.md
-    tasks: e01s01-tasks.yaml
-  - id: e01s02
+    spec: e02s01-setup.md
+    tasks: e02s01-tasks.yaml
+  - id: e02s02
     title: Svelte Login & JWT Integration
     bcps: 3
     status: todo
-    spec: e01s02-auth.md
-    tasks: e01s02-tasks.yaml
+    spec: e02s02-auth.md
+    tasks: e02s02-tasks.yaml

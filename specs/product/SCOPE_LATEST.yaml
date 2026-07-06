@@ -32,6 +32,8 @@ success_criteria:
   - "Unauthenticated users cannot view or fetch knowledge pages or the Pagefind index."
   - "Authenticated users can browse and read the library."
   - "AI MCP Server can successfully return Pagefind search results when queried with a valid Bearer token."
+  - "All target books exist as canonical OKF markdown under `src/content/books/` with valid YAML frontmatter."
+  - "`LIBRARY_INDEX.md` paths match the ingested `src/content/books/` layout."
 
 references:
   - "specs/tech-architecture/tech-stack.md"

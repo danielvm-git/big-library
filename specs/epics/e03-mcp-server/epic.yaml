@@ -1,18 +1,18 @@
-id: e02
+id: e03
 title: "Pagefind Index & Go MCP Server"
 wsjf: 7.2
 total_bcps: 5
 status: todo
 stories:
-  - id: e02s01
+  - id: e03s01
     title: Pagefind Build Integration
     bcps: 2
     status: todo
-    spec: e02s01-pagefind.md
-    tasks: e02s01-tasks.yaml
-  - id: e02s02
+    spec: e03s01-pagefind.md
+    tasks: e03s01-tasks.yaml
+  - id: e03s02
     title: BigBase Go MCP Server Implementation
     bcps: 3
     status: todo
-    spec: e02s02-mcp.md
-    tasks: e02s02-tasks.yaml
+    spec: e03s02-mcp.md
+    tasks: e03s02-tasks.yaml

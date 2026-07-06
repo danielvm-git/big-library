@@ -1,0 +1,15 @@
+story_id: e01s02
+title: Sync src/content/books with LIBRARY_INDEX.md
+status: todo
+bcps: 2
+tasks:
+  - id: 1
+    description: "Update LIBRARY_INDEX.md to point to canonical src/content/books/*/index.md paths"
+    verify: "grep 'src/content/books' LIBRARY_INDEX.md"
+    risk: P1
+    status: todo
+  - id: 2
+    description: "Verify all books in LIBRARY_INDEX.md have corresponding OKF folders"
+    verify: "ls -d src/content/books/* | wc -l"
+    risk: P2
+    status: todo
