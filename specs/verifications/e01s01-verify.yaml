@@ -1,0 +1,24 @@
+story_id: e01s01
+verified_at: "2026-07-06T20:30:00Z"
+verifier: verify-work
+phases:
+  smoke:
+    passed: true
+  build:
+    passed: true
+    command: "python3 migrate_to_okf.py"
+  typecheck:
+    passed: true
+  lint:
+    passed: true
+  tests:
+    passed: true
+    command: "python3 -m unittest test_migrate_to_okf.py"
+  manual:
+    steps:
+      - step: "Verify OKF structure is created"
+        expected: "src/content/books/*/index.md created"
+        actual: "Created 16 directories with index.md containing text and ok status"
+        passed: true
+  gaps:
+    closed: true

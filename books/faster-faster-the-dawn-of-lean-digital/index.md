@@ -1,6 +1,5 @@
 ---
 type: Book
-diataxis: reference
 title: "Faster, Faster: The Dawn of Lean Digital"
 authors: ["Cesar Gon (CI&T)"]
 year: ~2020

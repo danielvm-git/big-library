@@ -1,56 +1,22 @@
 # Big Library Index
 
-## Project Management Professional (PMP)
-- **PMBOK 7th Edition** (`books/pmp/PMBOK_7th_Edition.pdf`)
-  - Project Management Body of Knowledge, 7th Edition
-  - Standard for project management practices and frameworks
+This index is auto-generated from `src/content/books/`.
 
-## Toyota Way
-- **Toyota Way** (`books/toyota-way/Toyota_Way_Jeffrey_Liker.pdf`)
-  - Jeffrey Liker's comprehensive guide to Toyota's production system
-  - Principles of lean manufacturing and continuous improvement
+## Canonical Books Collection
 
-## Lean Software Development (Poppendieck)
-- **Lean Software Development** (`books/lean-software/Lean_Software_Development_Poppendieck.pdf`)
-  - Mary and Tom Poppendieck's foundational work
-  - Applying lean principles to software development
-- **Implementing Lean Software Development** (`books/lean-software/Implementing_Lean_Software_Development_Poppendieck.pdf`)
-  - Practical implementation strategies
-- **Leading Lean Software Development** (`books/lean-software/Leading_Lean_Software_Development_Poppendieck.pdf`)
-  - Leadership guidance for lean transformations
-
-## English Proficiency & Technical Communication
-- **Alphabet Basics** (`books/english/01_Alphabet.pdf`)
-  - English alphabet fundamentals
-- **Alphabet Exercises** (`books/english/01_Alphabet_Exercises.pdf`)
-  - Practice exercises for alphabet learning
-- **Numbers** (`books/english/02_Numbers.pdf`)
-  - English number vocabulary and usage
-- **Pronouns** (`books/english/03_Pronouns.pdf`)
-  - English pronoun usage and grammar
-- **To Be** (`books/english/04_To Be.pdf`)
-  - Verb "to be" conjugation and usage
-- **To Be Exercises** (`books/english/04_To Be_Exercises.pdf`)
-  - Practice exercises for "to be" verb
-- **Ask Jackie Series** (`books/english/`)
-  - AskJackie_01.pdf - Basic English lessons
-  - askjackie-Ingles-Fora-do-Livro.pdf - English outside the textbook
-  - askjackie-Irregularverbs.pdf - Irregular verbs guide
-  - askjackie-mpdf.pdf, askjackie-mpdf-2.pdf, askjackie-mpdf-3.pdf - Multi-part English lessons
-  - week-01-COMO SEGUIR O CURSO (CONTEÚDO).pdf - Course guidance (Portuguese)
-  - week-01-WELCOME.pdf - Welcome materials
-- **English Learning Resources** (`books/english/`)
-  - Como-melhorar-seu-ingles-com-podcasts.pdf - Improving English with podcasts
-  - Cronogramas-sugeridos.pdf - Suggested schedules
-  - Os-10-erros-mais-comuns-que-os-Brasileiros-cometem-quando-falam-Ingles.pdf - Common English mistakes for Brazilian speakers
-  - Como Funciona o Fascismo - Jason Stanley.pdf - English reading material on fascism
-  - PoderCamuflado.epub - English literature
-
-## Usage Notes
-This library provides foundational knowledge for:
-- Project management frameworks and methodologies
-- Lean manufacturing and software development principles
-- English language proficiency for technical communication
-- Supplementary materials for professional development
-
-Files are organized by subject area for easy reference. PDF format ensures cross-platform accessibility.
+- **Antifragile: Things That Gain from Disorder** (`src/content/books/antifragile-things-that-gain-from-disorder/index.md`)
+- **Daily Management to Execute Strategy: Solving Problems and Developing People Every Day** (`src/content/books/daily-management-to-execute-strategy-solving-problems-and-developing-people-every-day/index.md`)
+- **Design a Better Business: New Tools, Skills, and Mindset for Strategy and Innovation** (`src/content/books/design-a-better-business-new-tools-skills-and-mindset-for-strategy-and-innovation/index.md`)
+- **Fast/Forward: Make Your Company Fit for the Future** (`src/content/books/fast-forward-make-your-company-fit-for-the-future/index.md`)
+- **Faster, Faster: The Dawn of Lean Digital** (`src/content/books/faster-faster-the-dawn-of-lean-digital/index.md`)
+- **Getting the Right Things Done: A Leader's Guide to Planning and Execution** (`src/content/books/getting-the-right-things-done-a-leader-s-guide-to-planning-and-execution/index.md`)
+- **Implementing Lean Software Development: From Concept to Cash** (`src/content/books/implementing-lean-software-development-from-concept-to-cash/index.md`)
+- **Lean Thinking: Banish Waste and Create Wealth in Your Corporation** (`src/content/books/lean-thinking-banish-waste-and-create-wealth-in-your-corporation/index.md`)
+- **Learning to See: Value Stream Mapping to Add Value and Eliminate Muda** (`src/content/books/learning-to-see-value-stream-mapping-to-add-value-and-eliminate-muda/index.md`)
+- **Managing on Purpose: Using Hoshin Kanri to Develop Strategy, Align Teams, Grow Leaders, and Innovate Your Enterprise** (`src/content/books/managing-on-purpose-using-hoshin-kanri-to-develop-strategy-align-teams-grow-leaders-and-innovate-your-enterprise/index.md`)
+- **Managing to Learn: Using the A3 Management Process to Solve Problems, Gain Agreement, Mentor, and Lead** (`src/content/books/managing-to-learn-using-the-a3-management-process-to-solve-problems-gain-agreement-mentor-and-lead/index.md`)
+- **The Lean Turnaround: How Business Leaders Use Lean Principles to Create Value and Transform Their Company** (`src/content/books/the-lean-turnaround-how-business-leaders-use-lean-principles-to-create-value-and-transform-their-company/index.md`)
+- **The Machine That Changed the World: The Story of Lean Production** (`src/content/books/the-machine-that-changed-the-world-the-story-of-lean-production/index.md`)
+- **The Phoenix Project: A Novel about IT, DevOps, and Helping Your Business Win** (`src/content/books/the-phoenix-project-a-novel-about-it-devops-and-helping-your-business-win/index.md`)
+- **The Toyota Way: 14 Management Principles from the World's Greatest Manufacturer** (`src/content/books/the-toyota-way-14-management-principles-from-the-world-s-greatest-manufacturer/index.md`)
+- **Value Stream Mapping: How to Visualize Work and Align Leadership for Organizational Transformation** (`src/content/books/value-stream-mapping-how-to-visualize-work-and-align-leadership-for-organizational-transformation/index.md`)

@@ -1,0 +1,23 @@
+story_id: e01s02
+verified_at: "2026-07-06T20:31:00Z"
+verifier: verify-work
+phases:
+  smoke:
+    passed: true
+  build:
+    passed: true
+    command: "python3 generate_index.py"
+  typecheck:
+    passed: true
+  lint:
+    passed: true
+  tests:
+    passed: true
+  manual:
+    steps:
+      - step: "Verify LIBRARY_INDEX.md points to src/content/books"
+        expected: "LIBRARY_INDEX.md is generated with canonical paths"
+        actual: "LIBRARY_INDEX.md correctly generated using generate_index.py with 16 matching books"
+        passed: true
+  gaps:
+    closed: true

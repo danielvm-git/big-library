@@ -1,6 +1,5 @@
 ---
 type: Book
-diataxis: reference
 title: "Fast/Forward: Make Your Company Fit for the Future"
 authors: ["Julian Birkinshaw", "Jonas Ridderstråle"]
 isbn: 978-0804799513

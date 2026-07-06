@@ -1,6 +1,5 @@
 ---
 type: Book
-diataxis: reference
 title: "Antifragile: Things That Gain from Disorder"
 authors: ["Nassim Nicholas Taleb"]
 isbn: 978-0812979688

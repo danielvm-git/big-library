@@ -1,6 +1,5 @@
 ---
 type: Book
-diataxis: reference
 title: "Managing to Learn: Using the A3 Management Process to Solve Problems, Gain Agreement, Mentor, and Lead"
 authors: ["John Shook"]
 isbn: 978-1-934109-20-5

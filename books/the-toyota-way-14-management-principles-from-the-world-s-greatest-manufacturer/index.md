@@ -1,6 +1,5 @@
 ---
 type: Book
-diataxis: reference
 title: "The Toyota Way: 14 Management Principles from the World's Greatest Manufacturer"
 authors: ["Jeffrey K. Liker"]
 isbn: 978-0-07-139231-0

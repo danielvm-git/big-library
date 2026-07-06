@@ -1,6 +1,5 @@
 ---
 type: Book
-diataxis: reference
 title: "Daily Management to Execute Strategy: Solving Problems and Developing People Every Day"
 authors: ["José Ferro", "Robson Gouveia"]
 isbn: 978-1-934109-07-6

@@ -1,6 +1,5 @@
 ---
 type: Book
-diataxis: reference
 title: "Lean Thinking: Banish Waste and Create Wealth in Your Corporation"
 authors: ["James P. Womack", "Daniel T. Jones"]
 isbn: 978-0-7432-4927-0

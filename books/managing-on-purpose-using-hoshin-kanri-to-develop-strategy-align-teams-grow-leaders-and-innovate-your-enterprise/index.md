@@ -1,6 +1,5 @@
 ---
 type: Book
-diataxis: reference
 title: "Managing on Purpose: Using Hoshin Kanri to Develop Strategy, Align Teams, Grow Leaders, and Innovate Your Enterprise"
 authors: ["Mark Reich"]
 isbn: 978-1-934109-05-3

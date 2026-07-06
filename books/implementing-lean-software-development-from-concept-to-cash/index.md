@@ -1,6 +1,5 @@
 ---
 type: Book
-diataxis: reference
 title: "Implementing Lean Software Development: From Concept to Cash"
 authors: ["Mary Poppendieck", "Tom Poppendieck"]
 isbn: 978-0-321-43738-9

@@ -1,6 +1,5 @@
 ---
 type: Book
-diataxis: reference
 title: "The Phoenix Project: A Novel about IT, DevOps, and Helping Your Business Win"
 authors: ["Gene Kim", "Kevin Behr", "George Spafford"]
 isbn: 978-1942788294

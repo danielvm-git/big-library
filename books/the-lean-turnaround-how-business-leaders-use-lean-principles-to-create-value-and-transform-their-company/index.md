@@ -1,6 +1,5 @@
 ---
 type: Book
-diataxis: reference
 title: "The Lean Turnaround: How Business Leaders Use Lean Principles to Create Value and Transform Their Company"
 authors: ["Art Byrne (Foreword by James P. Womack)"]
 isbn: 978-0-07-180067-9

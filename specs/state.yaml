@@ -2,7 +2,7 @@ workflow_mode: solo-git
 active_flow: build_epic
 active_epic_id: e01
 handoff:
-  next_skill: kickoff-branch
+  next_skill: release-branch
   hermes_entrypoint: specs/epics/e01-book-ingestion/
   content_assets:
     ai_prompts: "AI_Assistant_Prompt_*.md (repo root, 9 files)"

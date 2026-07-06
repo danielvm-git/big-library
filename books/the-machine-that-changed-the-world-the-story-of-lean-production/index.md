@@ -1,6 +1,5 @@
 ---
 type: Book
-diataxis: reference
 title: "The Machine That Changed the World: The Story of Lean Production"
 authors: ["James P. Womack", "Daniel T. Jones", "Daniel Roos"]
 isbn: 978-0-7432-9979-4

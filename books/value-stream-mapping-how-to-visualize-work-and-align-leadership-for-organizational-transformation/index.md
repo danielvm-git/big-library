@@ -1,6 +1,5 @@
 ---
 type: Book
-diataxis: reference
 title: "Value Stream Mapping: How to Visualize Work and Align Leadership for Organizational Transformation"
 authors: ["Karen Martin", "Mike Osterling"]
 isbn: 978-0-07-182891-8

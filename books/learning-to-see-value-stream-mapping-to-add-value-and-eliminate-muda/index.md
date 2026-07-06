@@ -1,6 +1,5 @@
 ---
 type: Book
-diataxis: reference
 title: "Learning to See: Value Stream Mapping to Add Value and Eliminate Muda"
 authors: ["Mike Rother", "John Shook"]
 isbn: 978-0-9667843-0-5
