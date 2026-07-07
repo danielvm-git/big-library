@@ -1,0 +1,109 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  ci-cd:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 0. Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+
+      - name: 1. Semantic Release
+        id: semantic
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npm install -g semantic-release @semantic-release/changelog @semantic-release/git
+          npx semantic-release
+          echo "RELEASE_CREATED=$?" >> $GITHUB_ENV
+
+      - name: 2. Build Web
+        run: |
+          npm ci
+          npm run build
+
+      - name: 2.1 Build Go MCP Server
+        run: |
+          cd mcp-server
+          go build -o mcp-server main.go
+
+      - name: Auto-commit Build Output
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add dist/ mcp-server/mcp-server
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: auto-commit build outputs [skip ci]" && git push)
+
+      - name: 3. Tests
+        run: |
+          # Web Tests
+          if [ -f "package.json" ] && grep -q '"test"' package.json; then
+            npm test
+          fi
+          # Go Tests
+          cd mcp-server
+          if ls *_test.go 1> /dev/null 2>&1; then
+            go test ./...
+          fi
+
+      - name: 4. Login BigBase
+        id: login
+        run: |
+          response=$(curl -s -X POST https://bigbase.click/api/auth/login \
+            -H "Content-Type: application/json" \
+            -d "{\"email\": \"${{ secrets.BIGBASE_EMAIL }}\", \"password\": \"${{ secrets.BIGBASE_PASSWORD }}\"}")
+          jwt=$(echo $response | jq -r .token)
+          if [ "$jwt" == "null" ] || [ -z "$jwt" ]; then
+            echo "Failed to retrieve JWT."
+            exit 1
+          fi
+          echo "jwt=$jwt" >> $GITHUB_OUTPUT
+
+      - name: 5. Deploy
+        run: |
+          curl -s -X POST https://bigbase.click/api/sites/${{ secrets.BIGBASE_SITE_ID }}/deploy \
+            -H "Authorization: Bearer ${{ steps.login.outputs.jwt }}" \
+            -H "Content-Type: application/json" \
+            -d '{"branch": "main", "app_type": "static", "passthrough_paths": ["/mcp"]}'
+
+      - name: 6. Health Check
+        run: |
+          # Retry loop 8 times with 10s interval
+          SITE_URL="${{ vars.BIGBASE_SITE_URL || 'https://library.bigbase.click' }}"
+          echo "Checking health for $SITE_URL"
+          for i in {1..8}; do
+            status_code=$(curl -o /dev/null -s -w "%{http_code}\n" $SITE_URL)
+            if [ "$status_code" -eq 200 ]; then
+              echo "✅ Site is LIVE and healthy!"
+              exit 0
+            fi
+            echo "Attempt $i/8: Got HTTP $status_code. Retrying in 10s..."
+            sleep 10
+          done
+          echo "❌ Health check failed after 8 attempts."
+          exit 1
+
+      - name: 7. Summary
+        if: always()
+        run: |
+          echo "### Deployment Summary 🚀" >> $GITHUB_STEP_SUMMARY
+          echo "Status: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+          echo "URL: ${{ vars.BIGBASE_SITE_URL || 'https://library.bigbase.click' }}" >> $GITHUB_STEP_SUMMARY
+          echo "Timestamp: $(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_STEP_SUMMARY
