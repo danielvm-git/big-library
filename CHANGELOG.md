@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/danielvm-git/big-library/compare/v1.0.0...v1.0.1) (2026-07-10)
+
+
+### Bug Fixes
+
+* **ci:** add concurrency group to CodeQL workflow ([4fa0940](https://github.com/danielvm-git/big-library/commit/4fa09405aaf538770c839bdb0cdf16a212325ece))
+
 # 1.0.0 (2026-07-10)
 
 
