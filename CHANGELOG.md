@@ -1,0 +1,14 @@
+# 1.0.0 (2026-07-10)
+
+
+### Features
+
+* **auth:** implement Svelte JWT login flow ([9ac70bc](https://github.com/danielvm-git/big-library/commit/9ac70bc1de49e90fb8b95d3f07ecd53f9c983977))
+* **auth:** implement Svelte JWT login flow ([23f31b8](https://github.com/danielvm-git/big-library/commit/23f31b87775c414fc6c44d884cbc9c2216339695))
+* **ci:** implement BigBase CI/CD pipeline with semantic-release ([778d0e3](https://github.com/danielvm-git/big-library/commit/778d0e3603dd5d78c67699ea5d5157ce1352c4cc))
+* **frontend:** initialize Astro setup with BigBase DS ([e015b0a](https://github.com/danielvm-git/big-library/commit/e015b0a2fa9563c71a04b6a4d25529327d3da484))
+* **frontend:** initialize Astro setup with BigBase DS ([3332263](https://github.com/danielvm-git/big-library/commit/333226358e76f4e8b6a0c4fe1335dfd682ac1812))
+* **ingestion:** implement OKF parsing and index generation ([0acb39f](https://github.com/danielvm-git/big-library/commit/0acb39f926f7efd14554fbef69e31034a0ea11f8))
+* initial Hermes Big Library scaffold ([89cc658](https://github.com/danielvm-git/big-library/commit/89cc65874b09c6af4130056994d8f65254b54984))
+* **mcp:** implement Go MCP Server with SSE and JWT Auth ([bcc3f76](https://github.com/danielvm-git/big-library/commit/bcc3f76cfcc2d4758c04e590d3402321c106877e))
+* **mcp:** implement Go MCP Server with SSE and JWT Auth ([d8c809e](https://github.com/danielvm-git/big-library/commit/d8c809e6874ab1d718da24664e5c6975bc2cac04))
