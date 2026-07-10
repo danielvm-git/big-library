@@ -1,6 +1,7 @@
 workflow_mode: solo-git
-active_flow: build_epic
-active_epic_id: e02
+current_phase: "release"
+active_epic_id: ""
+next_skill: "plan-release"
 handoff:
   next_skill: develop-tdd
   hermes_entrypoint: specs/epics/e02-astro-frontend/

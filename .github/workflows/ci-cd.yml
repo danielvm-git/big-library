@@ -6,9 +6,19 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+concurrency:
+  group: ci-cd-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   ci-cd:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
     steps:
       - name: 0. Checkout
         uses: actions/checkout@v4
@@ -18,7 +28,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
+          cache: npm
 
       - name: Setup Go
         uses: actions/setup-go@v5
@@ -32,26 +43,27 @@ jobs:
         run: |
           npm install -g semantic-release @semantic-release/changelog @semantic-release/git
           npx semantic-release
-          echo "RELEASE_CREATED=$?" >> $GITHUB_ENV
 
       - name: 2. Build Web
         run: |
           npm ci
           npm run build
 
-      - name: 2.1 Build Go MCP Server
+      - name: 3. Build Go MCP Server
         run: |
           cd mcp-server
           go build -o mcp-server main.go
 
-      - name: Auto-commit Build Output
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add dist/ mcp-server/mcp-server
-          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: auto-commit build outputs [skip ci]" && git push)
+      - name: 4. Upload Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: |
+            dist/
+            mcp-server/mcp-server
+          retention-days: 1
 
-      - name: 3. Tests
+      - name: 5. Tests
         run: |
           # Web Tests
           if [ -f "package.json" ] && grep -q '"test"' package.json; then
@@ -63,29 +75,22 @@ jobs:
             go test ./...
           fi
 
-      - name: 4. Login BigBase
-        id: login
+      - name: 6. Deploy
+        env:
+          BIGBASE_DEPLOY_TOKEN: ${{ secrets.BIGBASE_DEPLOY_TOKEN }}
+          BIGBASE_SITE_ID: ${{ secrets.BIGBASE_SITE_ID }}
         run: |
-          response=$(curl -s -X POST https://bigbase.click/api/auth/login \
-            -H "Content-Type: application/json" \
-            -d "{\"email\": \"${{ secrets.BIGBASE_EMAIL }}\", \"password\": \"${{ secrets.BIGBASE_PASSWORD }}\"}")
-          jwt=$(echo $response | jq -r .token)
-          if [ "$jwt" == "null" ] || [ -z "$jwt" ]; then
-            echo "Failed to retrieve JWT."
+          if [ -z "${BIGBASE_DEPLOY_TOKEN}" ]; then
+            echo "::error::BIGBASE_DEPLOY_TOKEN not set — provision via bigbase_provision_ci_credentials"
             exit 1
           fi
-          echo "jwt=$jwt" >> $GITHUB_OUTPUT
-
-      - name: 5. Deploy
-        run: |
-          curl -s -X POST https://bigbase.click/api/sites/${{ secrets.BIGBASE_SITE_ID }}/deploy \
-            -H "Authorization: Bearer ${{ steps.login.outputs.jwt }}" \
+          curl -s -X POST https://bigbase.click/api/sites/${BIGBASE_SITE_ID}/deploy \
+            -H "Authorization: Bearer ${BIGBASE_DEPLOY_TOKEN}" \
             -H "Content-Type: application/json" \
             -d '{"branch": "main", "app_type": "static", "passthrough_paths": ["/mcp"]}'
 
-      - name: 6. Health Check
+      - name: 7. Health Check
         run: |
-          # Retry loop 8 times with 10s interval
           SITE_URL="${{ vars.BIGBASE_SITE_URL || 'https://library.bigbase.click' }}"
           echo "Checking health for $SITE_URL"
           for i in {1..8}; do
@@ -100,7 +105,7 @@ jobs:
           echo "❌ Health check failed after 8 attempts."
           exit 1
 
-      - name: 7. Summary
+      - name: 8. Summary
         if: always()
         run: |
           echo "### Deployment Summary 🚀" >> $GITHUB_STEP_SUMMARY
