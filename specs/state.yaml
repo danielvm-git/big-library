@@ -3,8 +3,7 @@ current_phase: "release"
 active_epic_id: ""
 next_skill: "plan-release"
 handoff:
-  next_skill: develop-tdd
-  hermes_entrypoint: specs/epics/e02-astro-frontend/
+  next_skill: survey-context
   content_assets:
     ai_prompts: "AI_Assistant_Prompt_*.md (repo root, 9 files)"
     book_stubs: "books/*/index.md (16 stubs with status: no-pdf)"
