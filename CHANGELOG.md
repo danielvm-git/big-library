@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/danielvm-git/big-library/compare/v1.0.1...v1.0.2) (2026-07-26)
+
+
+### Bug Fixes
+
+* **ci:** fail the deploy step when the BigBase API returns non-2xx ([#6](https://github.com/danielvm-git/big-library/issues/6)) ([8132a63](https://github.com/danielvm-git/big-library/commit/8132a63d9b8b109c6183ec1bfb24c944258fb4c3))
+
 ## [1.0.1](https://github.com/danielvm-git/big-library/compare/v1.0.0...v1.0.1) (2026-07-10)
 
 
