@@ -84,10 +84,21 @@ jobs:
             echo "::error::BIGBASE_DEPLOY_TOKEN not set — provision via bigbase_provision_ci_credentials"
             exit 1
           fi
-          curl -s -X POST https://bigbase.click/api/sites/${BIGBASE_SITE_ID}/deploy \
+          # Capture the HTTP status. Without this a 401/403/500 from the deploy
+          # API is swallowed (curl -s exits 0 on HTTP errors), the job continues,
+          # and step 7 then gets a 200 from the PREVIOUS deployment and reports
+          # "Site is LIVE" for a deploy that never happened.
+          HTTP_CODE=$(curl -sS -o /tmp/deploy_response.json -w '%{http_code}' \
+            -X POST https://bigbase.click/api/sites/${BIGBASE_SITE_ID}/deploy \
             -H "Authorization: Bearer ${BIGBASE_DEPLOY_TOKEN}" \
             -H "Content-Type: application/json" \
-            -d '{"branch": "main", "app_type": "static", "passthrough_paths": ["/mcp"]}'
+            -d '{"branch": "main", "app_type": "static", "passthrough_paths": ["/mcp"]}')
+          echo "Deploy API returned HTTP ${HTTP_CODE}"
+          cat /tmp/deploy_response.json || true
+          if [ "${HTTP_CODE}" -lt 200 ] || [ "${HTTP_CODE}" -ge 300 ]; then
+            echo "::error::Deploy API failed with HTTP ${HTTP_CODE}"
+            exit 1
+          fi
 
       - name: 7. Health Check
         run: |
