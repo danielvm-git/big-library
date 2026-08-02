@@ -1,5 +1,4 @@
 node_modules/
-dist/
 .env
 *.log
 .DS_Store
@@ -8,14 +7,19 @@ dist/
 *.epub
 *.png
 bigbase.db
+
 # build output
 dist/
 
 # generated types
 .astro/
 
-# dependencies
-node_modules/
+# compiled python
+__pycache__/
+*.pyc
+
+# Go binary (compiled artifact)
+mcp-server/mcp-server
 
 # logs
 npm-debug.log*
