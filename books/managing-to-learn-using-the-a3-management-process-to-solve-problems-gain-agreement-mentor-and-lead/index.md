@@ -6,7 +6,8 @@ isbn: 978-1-934109-20-5
 year: 2008
 publisher: "Lean Enterprise Institute"
 tags: ["a3 thinking", "problem solving", "mentoring", "leadership"]
-status: no-pdf
+file: managing-to-learn.pdf
+status: pdf
 links:
   external: https://www.amazon.com/Managing-Learn-Management-Problems-Agreement/dp/1934109207/
 ---
