@@ -75,51 +75,22 @@ jobs:
             go test ./...
           fi
 
-      - name: 6. Deploy
-        env:
-          BIGBASE_DEPLOY_TOKEN: ${{ secrets.BIGBASE_DEPLOY_TOKEN }}
-          BIGBASE_SITE_ID: ${{ secrets.BIGBASE_SITE_ID }}
-        run: |
-          if [ -z "${BIGBASE_DEPLOY_TOKEN}" ]; then
-            echo "::error::BIGBASE_DEPLOY_TOKEN not set — provision via bigbase_provision_ci_credentials"
-            exit 1
-          fi
-          # Capture the HTTP status. Without this a 401/403/500 from the deploy
-          # API is swallowed (curl -s exits 0 on HTTP errors), the job continues,
-          # and step 7 then gets a 200 from the PREVIOUS deployment and reports
-          # "Site is LIVE" for a deploy that never happened.
-          HTTP_CODE=$(curl -sS -o /tmp/deploy_response.json -w '%{http_code}' \
-            -X POST https://bigbase.click/api/sites/${BIGBASE_SITE_ID}/deploy \
-            -H "Authorization: Bearer ${BIGBASE_DEPLOY_TOKEN}" \
-            -H "Content-Type: application/json" \
-            -d '{"branch": "main", "app_type": "static", "passthrough_paths": ["/mcp"]}')
-          echo "Deploy API returned HTTP ${HTTP_CODE}"
-          cat /tmp/deploy_response.json || true
-          if [ "${HTTP_CODE}" -lt 200 ] || [ "${HTTP_CODE}" -ge 300 ]; then
-            echo "::error::Deploy API failed with HTTP ${HTTP_CODE}"
-            exit 1
-          fi
+      - name: 6. Upload site
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: dist/
+          retention-days: 3
 
-      - name: 7. Health Check
-        run: |
-          SITE_URL="${{ vars.BIGBASE_SITE_URL || 'https://library.bigbase.click' }}"
-          echo "Checking health for $SITE_URL"
-          for i in {1..8}; do
-            status_code=$(curl -o /dev/null -s -w "%{http_code}\n" $SITE_URL)
-            if [ "$status_code" -eq 200 ]; then
-              echo "✅ Site is LIVE and healthy!"
-              exit 0
-            fi
-            echo "Attempt $i/8: Got HTTP $status_code. Retrying in 10s..."
-            sleep 10
-          done
-          echo "❌ Health check failed after 8 attempts."
-          exit 1
-
-      - name: 8. Summary
-        if: always()
-        run: |
-          echo "### Deployment Summary 🚀" >> $GITHUB_STEP_SUMMARY
-          echo "Status: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
-          echo "URL: ${{ vars.BIGBASE_SITE_URL || 'https://library.bigbase.click' }}" >> $GITHUB_STEP_SUMMARY
-          echo "Timestamp: $(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_STEP_SUMMARY
+  # Static Astro build -> Cloudflare Pages. (The Go MCP server under /mcp was
+  # a BigBase passthrough and already returned 404 there; it is not hosted.)
+  deploy:
+    needs: [ci-cd]
+    if: github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
+    uses: danielvm-git/.github/.github/workflows/deploy-cloudflare-pages.yml@8fe2bc0aafed089dbf642587d662576989621deb  # danielvm-git/.github#46
+    with:
+      project: danielvm-library
+      domain: library.danielvm.net
+    secrets: inherit
