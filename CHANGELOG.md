@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/danielvm-git/big-library/compare/v1.0.2...v1.0.3) (2026-11-27)
+
+
+### Bug Fixes
+
+* **ci:** pin the Pages deploy to the shared workflow's merge commit ([#8](https://github.com/danielvm-git/big-library/issues/8)) ([dfd192e](https://github.com/danielvm-git/big-library/commit/dfd192ebc93373182a26ff8422ebe870019e0e82)), closes [#46](https://github.com/danielvm-git/big-library/issues/46)
+
 ## [1.0.2](https://github.com/danielvm-git/big-library/compare/v1.0.1...v1.0.2) (2026-07-26)
 
 
